@@ -1,0 +1,109 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://textbox/box_graphic.tscn" type="PackedScene" id=1]
+[ext_resource path="res://textbox/FOT-ModeMinBLargeStd-R.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://textbox/next.png" type="Texture" id=3]
+[ext_resource path="res://textbox/DialogBox.cs" type="Script" id=4]
+[ext_resource path="res://textbox/BlipPlayer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://sfx/menu_sounds/SE_OLD_05.ogg" type="AudioStream" id=6]
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("NextArrow:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1880, 1015 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "next_icon"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("NextArrow:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1880, 1015 ), Vector2( 1875, 1015 ) ]
+}
+
+[node name="DialogBox" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+input_pass_on_modal_close_click = false
+script = ExtResource( 4 )
+
+[node name="BoxGraphic" parent="." instance=ExtResource( 1 )]
+unique_name_in_owner = true
+mouse_filter = 2
+
+[node name="Text" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+margin_left = 158.0
+margin_top = 878.0
+margin_right = 1786.0
+margin_bottom = 1049.0
+mouse_filter = 2
+custom_constants/line_separation = 26
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "I walked out, such body was unmoved... and no one was there. Then, I ran upstairs with such bottle of goodness."
+text = "I walked out, such body was unmoved... and no one was there. Then, I ran upstairs with such bottle of goodness."
+scroll_active = false
+
+[node name="Showname" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+margin_left = 158.0
+margin_top = 787.0
+margin_right = 625.0
+margin_bottom = 839.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 1 )
+text = "Pandae"
+
+[node name="NextArrow" type="TextureRect" parent="."]
+unique_name_in_owner = true
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1880.0
+margin_top = 1015.0
+margin_right = 1920.0
+margin_bottom = 1064.0
+mouse_filter = 2
+texture = ExtResource( 3 )
+
+[node name="NextArrowAnimation" type="AnimationPlayer" parent="."]
+autoplay = "next_icon"
+anims/RESET = SubResource( 4 )
+anims/next_icon = SubResource( 3 )
+
+[node name="BlipPlayer" parent="." instance=ExtResource( 5 )]
+unique_name_in_owner = true
+bus = "Blips"
+
+[node name="ClickSfx" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource( 6 )
+bus = "Blips"
