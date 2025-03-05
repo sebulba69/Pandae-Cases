@@ -136,7 +136,7 @@ namespace AceInvestigatorEadnapPandae.commands
 
             characterNode?.SetTalk(false);
 
-            System.Threading.Thread.Sleep((int)(command.PauseTime * 1000));
+            Task.Delay((int)(command.PauseTime * 1000)).Wait();
 
             command.Finish();
         }

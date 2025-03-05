@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Threading.Tasks;
 
 public class DialogBox : Control
 {
@@ -41,9 +42,10 @@ public class DialogBox : Control
 
         Connect("gui_input", this, nameof(OnGuiInputEvent));
     }
-
+    /*
     public override void _Process(float delta)
     {
+        
         if (processing)
         {
             timePassed += delta;
@@ -81,7 +83,7 @@ public class DialogBox : Control
                 }
             }
         }
-    }
+    }*/
 
     public void SetShowname(string shownameText)
     {
@@ -113,6 +115,40 @@ public class DialogBox : Control
         parsedText = bbcodeRegex.Replace(text.Text, string.Empty);
 
         processing = true;
+
+        Start();
+    }
+
+    public void Start()
+    {
+        // separate the conversion here so we can re-use this value later
+        int delay_converted = (int)(delay * 1000);
+
+        int delay_ms = delay_converted;
+
+        string letter = string.Empty;
+
+        while (processing)
+        {
+            NextLetter();
+            letter = GetLastVisibleChar();
+
+            if (processing)
+            {
+                blipPlayer?.Blip(letter);
+            }
+
+            if (",.?".Contains(letter))
+            {
+                delay_ms += 50;
+            }
+            else
+            {
+                delay_ms = delay_converted;
+            }
+
+            Task.Delay(delay_ms).Wait();
+        }
     }
 
     public void SetSpeed(SpeedCommand speed)
