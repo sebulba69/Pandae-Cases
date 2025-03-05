@@ -39,7 +39,7 @@ namespace AceInvestigatorEadnapPandae.cases.case_1
             DialogHelper.MakeSmirkfredDialog(Globals.Smirkfred_Normal, "I need YOU to discover the gooey truth of this case."),
             CommandHelper.PlayAnimation(Globals.C1_Smirkfred_Slide_Pandae, true),
             DialogHelper.MakePandaeDialog(Globals.Pandae_Normal, "You're saying you didn't do it?"),
-            DialogHelper.MakeSmirkfredDialog(Globals.Smirkfred_Normal, $"{CommandHelper.GetSmackShake()}No no no no!"),
+            DialogHelper.MakeSmirkfredDialog(Globals.Smirkfred_Normal, $"{CommandHelper.GetDamage1Shake()}No no no no!"),
             DialogHelper.MakeSmirkfredDialog(Globals.Smirkfred_Normal, "I would never kill my good buddy, Matterman!"),
             DialogHelper.MakeSmirkfredDialog(Globals.Smirkfred_Normal, "Clearly this is such setup."),
             DialogHelper.MakeSmirkfredDialog(Globals.Smirkfred_Normal, "Please, such investigator, find the truth!!!"),

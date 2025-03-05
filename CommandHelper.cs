@@ -36,6 +36,11 @@ namespace AceInvestigatorEadnapPandae
             return commandMarkups.Effect(flash: true, shake: true, sfx: Globals.SFX_Smack);
         }
 
+        public static string GetDamage1Shake()
+        {
+            return commandMarkups.Effect(flash: true, shake: true, sfx: Globals.SFX_Damage1);
+        }
+
         public static string GetCandleLight()
         {
             return commandMarkups.Effect(flash: true, shake: true, sfx: Globals.SFX_Candle);

@@ -29,6 +29,8 @@ namespace AceInvestigatorEadnapPandae
         public static string SFX_Idea = "idea";
         public static string SFX_Smack = "smack";
         public static string SFX_Candle = "candle";
+        public static string SFX_Explode = "explode";
+        public static string SFX_Damage1 = "damage1";
 
         public static Dictionary<string, string> SFXs = new Dictionary<string, string>() 
         {
@@ -36,6 +38,8 @@ namespace AceInvestigatorEadnapPandae
             { SFX_Idea, "res://sfx/SE_OLD_21.ogg" },
             { SFX_Smack, "res://sfx/SE_OLD_019.ogg" },
             { SFX_Candle, "res://sfx/SE_170.ogg" },
+            { SFX_Explode, "res://sfx/SE_OLD_14.ogg" },
+            { SFX_Damage1, "res://sfx/SE_OLD_26.ogg" },
         };
 
         // animations
