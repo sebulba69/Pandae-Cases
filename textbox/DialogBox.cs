@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 public class DialogBox : Control
 {
     private bool processing = false;
-    private float timePassed = 0f;
     private float delay = 0f;
     private string parsedText = "";
 
@@ -42,48 +41,6 @@ public class DialogBox : Control
 
         Connect("gui_input", this, nameof(OnGuiInputEvent));
     }
-    /*
-    public override void _Process(float delta)
-    {
-        
-        if (processing)
-        {
-            timePassed += delta;
-
-            if(timePassed >= delay)
-            {
-                int numberOfLetters = (int)(timePassed / delay); // find out how many letters we're owed (should be at least 1)
-                
-                // the last letter
-                string letter = string.Empty;
-                for(int i = 0; i < numberOfLetters; i++)
-                {
-                    NextLetter();
-
-                    letter = GetLastVisibleChar();
-
-                    // we hit the end
-                    if (letter == string.Empty || !processing)
-                        break;
-
-                    // subtract from our delay to compensate for overshooting the timing
-                    timePassed -= delay;
-                }
-
-                // check to make sure we're not over-displaying letters
-                if(letter != string.Empty || !processing)
-                {
-                    // finally, blip on the last letter
-                    blipPlayer?.Blip(letter);
-
-                    if (",.?".Contains(letter))
-                    {
-                        timePassed -= 0.1f; // Extend delay for commas, periods and question marks
-                    }
-                }
-            }
-        }
-    }*/
 
     public void SetShowname(string shownameText)
     {
@@ -107,7 +64,6 @@ public class DialogBox : Control
         else
         {
             text.VisibleCharacters = 0;
-            timePassed = 0;
             text.BbcodeText = command.Text;
         }
 
@@ -219,7 +175,7 @@ public class DialogBox : Control
         {
             if ((ButtonList)eventButton.ButtonIndex == ButtonList.Left) 
             {
-                text.VisibleCharacters = 0;
+                text.Text = "";
                 clickSFX.Play();
                 speaker = "";
                 DialogClicked?.Set();

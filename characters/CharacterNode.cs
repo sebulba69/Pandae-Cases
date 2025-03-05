@@ -9,7 +9,7 @@ namespace AceInvestigatorEadnapPandae.characters
 {
     public class CharacterNode : Node2D
     {
-        private string currentEmote = "";
+        protected string currentEmote = "";
         private AnimationPlayer basePlayer, blinkPlayer, talkPlayer;
         private Sprite blinkSprite, talkSprite;
 
@@ -39,7 +39,7 @@ namespace AceInvestigatorEadnapPandae.characters
             }
         }
 
-        public void SetTalk(bool talk)
+        public virtual void SetTalk(bool talk)
         {
             if (talk && !talkSprite.Visible) 
             {
