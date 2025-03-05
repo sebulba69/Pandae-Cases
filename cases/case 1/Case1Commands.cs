@@ -57,6 +57,8 @@ namespace AceInvestigatorEadnapPandae.cases.case_1
             CommandHelper.PlayAnimation(Globals.C1_Pandae_Slide, true),
             DialogHelper.MakePandaeDialog(Globals.Pandae_Normal, "Right... whatever you say, man."),
             DialogHelper.MakePandaeDialog(string.Empty, $"[color={Globals.ThinkColor}](Lemme take a closer look at the body.)[/color]"),
+            CommandHelper.PlayAnimation(Globals.C1_Remove_Box, true),
+            CommandHelper.PlayAnimation(Globals.C1_Remove_Close_Ups, true),
         };
     }
 }

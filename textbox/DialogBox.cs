@@ -171,7 +171,7 @@ public class DialogBox : Control
         if (!nextArrow.Visible)
             return;
 
-        if(@event is InputEventMouseButton eventButton && eventButton.Pressed)
+        if(@event is InputEventMouseButton eventButton && eventButton.Pressed && Modulate.a != 0)
         {
             if ((ButtonList)eventButton.ButtonIndex == ButtonList.Left) 
             {
