@@ -60,16 +60,24 @@ public class DialogBox : Control
 
                     letter = GetLastVisibleChar();
 
+                    // we hit the end
+                    if (letter == string.Empty || !processing)
+                        break;
+
                     // subtract from our delay to compensate for overshooting the timing
                     timePassed -= delay;
                 }
 
-                // finally, blip on the last letter
-                blipPlayer?.Blip(letter);
-
-                if (",!.?".Contains(letter))
+                // check to make sure we're not over-displaying letters
+                if(letter != string.Empty || !processing)
                 {
-                    timePassed -= 0.1f; // Shorter delay for commas and periods
+                    // finally, blip on the last letter
+                    blipPlayer?.Blip(letter);
+
+                    if (",.?".Contains(letter))
+                    {
+                        timePassed -= 0.1f; // Extend delay for commas, periods and question marks
+                    }
                 }
             }
         }
@@ -144,12 +152,14 @@ public class DialogBox : Control
 
     public void NextLetter()
     {
-        text.VisibleCharacters++;
-        if(text.VisibleCharacters >= parsedText.Length)
+        if(text.VisibleCharacters + 1 > parsedText.Length)
         {
             processing = false;
             MessageDisplayed.Set();
+            return;
         }
+
+        text.VisibleCharacters++;
     }
 
     public string GetLastVisibleChar()

@@ -8,6 +8,8 @@ namespace AceInvestigatorEadnapPandae
 {
     public static class Globals
     {
+        public static string ThinkColor = "#6495ED";
+
         public static float Text_Normal = 0.03f;
         public static float Text_Slow = 0.06f;
         public static float Text_Typewriter = 0.09f;
@@ -16,8 +18,8 @@ namespace AceInvestigatorEadnapPandae
         public static string Spd_Slow = $"{{spd {Text_Slow}}}";
         public static string Spd_Typewriter = $"{{spd {Text_Typewriter}}}";
 
-        public static string Pause_Short = "{p 0.2}";
-        public static string Pause_Long = "{p 0.5}";
+        public static string Pause_Short = "{p 0.1}";
+        public static string Pause_Long = "{p 0.2}";
 
         // songs
         public static string AAI2_Investigation_Begin = "res://music/BGM_01.ogg";
@@ -41,6 +43,7 @@ namespace AceInvestigatorEadnapPandae
         public static string C1_Intro_SmirkfredCloseUp = "smirkfred_close_up";
         public static string C1_Intro_SmirkfredSlideCenter = "smirkfred_slide_center";
         public static string C1_Smirkfred_Slide_Pandae = "smirkfred_slide_pandae";
+        public static string C1_Pandae_Slide = "pandae_slide";
 
         // Easy access strings for characters + emotes
         // Pandae

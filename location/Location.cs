@@ -11,6 +11,8 @@ namespace AceInvestigatorEadnapPandae.location
 {
     public class Location : Control
     {
+        protected List<Command> commands;
+
         private AnimationCommand currentAnimationCommand = null;
 
         public DialogBox DialogBox { get; set; }
@@ -24,6 +26,18 @@ namespace AceInvestigatorEadnapPandae.location
         public AudioStreamPlayer SFX { get; set; }
 
         public Background Background { get; set; }
+
+        protected async void Run()
+        {
+            await Task.Run(() =>
+            {
+                foreach (Command command in commands)
+                {
+                    command.Run(this);
+                    command.Finished.WaitOne();
+                }
+            });
+        }
 
         public void PlaySceneAnimation(AnimationCommand command)
         {

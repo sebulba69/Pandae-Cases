@@ -67,8 +67,8 @@ mouse_filter = 2
 custom_constants/line_separation = 26
 custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
-bbcode_text = "I walked out, such body was unmoved... and no one was there. Then, I ran upstairs with such bottle of goodness."
-text = "I walked out, such body was unmoved... and no one was there. Then, I ran upstairs with such bottle of goodness."
+bbcode_text = "[color=#6495ED]This is some blue text.[/color]"
+text = "This is some blue text."
 scroll_active = false
 
 [node name="Showname" type="RichTextLabel" parent="."]
@@ -87,10 +87,9 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 1880.0
-margin_top = 1015.0
-margin_right = 1920.0
-margin_bottom = 1064.0
+margin_left = -40.0
+margin_top = -65.0
+margin_bottom = -16.0
 mouse_filter = 2
 texture = ExtResource( 3 )
 

@@ -10,13 +10,11 @@ using System.Threading.Tasks;
 
 public class Case1Introduction : Location
 {
-    private List<Command> commands;
-
     // Called when the node enters the scene tree for the first time.
-    public async override void _Ready()
+    public override void _Ready()
     {
         DialogBox = GetNode<DialogBox>("%DialogBox");
-        Characters = new Dictionary<string, CharacterNode>() 
+        Characters = new Dictionary<string, CharacterNode>()
         {
             { Globals.Pandae, GetNode<CharacterNode>("%pandae") },
             { Globals.Smirkfred, GetNode<CharacterNode>("%smirkfred") }
@@ -27,7 +25,7 @@ public class Case1Introduction : Location
 
         commands = Case1Dialog.Introduction;
 
-        List<AnimationPlayer> players = new List<AnimationPlayer>() 
+        List<AnimationPlayer> players = new List<AnimationPlayer>()
         {
             GetNode<AnimationPlayer>("%AnimationPlayer"),
             GetNode<AnimationPlayer>("%AnimationPlayer2"),
@@ -36,14 +34,6 @@ public class Case1Introduction : Location
 
         RegisterPlayers(players);
 
-        await Task.Run(() =>
-            {
-                foreach (Command command in commands)
-                {
-                    command.Run(this);
-                    command.Finished.WaitOne();
-                }
-            }
-        );
+        Run();
     }
 }
