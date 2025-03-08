@@ -47,6 +47,8 @@ namespace AceInvestigatorEadnapPandae
             return commandMarkups.Effect(flash: true, shake: true, sfx: Globals.SFX_Candle);
         }
 
+        public static SetFlagCommand SetFlag(string flag) => new SetFlagCommand() { Flag = G_Case1.Flag_Body };
+
         public static AnimationCommand PlayAnimation(string animation, bool waitUntilFinsihed = false) => new AnimationCommand() { Animation = animation, WaitUntilFinished = waitUntilFinsihed };
         
         public static MusicCommand PlaySong(string song) => new MusicCommand() { Music = song };

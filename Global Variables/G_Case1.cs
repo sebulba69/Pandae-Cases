@@ -13,12 +13,13 @@ namespace AceInvestigatorEadnapPandae.Global_Variables
         public static string C1_Remove_Close_Ups = "remove_close_ups";
         public static string C1_Remove_Box = "remove_box";
         public static string C1_Intro_SmirkfredCloseUp = "smirkfred_close_up";
+        public static string C1_Intro_PandaeCloseUp = "pandae_close_up";
         public static string C1_Intro_SmirkfredSlideCenter = "smirkfred_slide_center";
         public static string C1_Smirkfred_Slide_Pandae = "smirkfred_slide_pandae";
         public static string C1_Pandae_Slide = "pandae_slide";
 
         // points of interest
         public static string C1_POI_Body = "body";
-        public static string C1_Flag_Body = "body";
+        public static string Flag_Body = "body";
     }
 }

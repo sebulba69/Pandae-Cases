@@ -36,17 +36,17 @@ namespace AceInvestigatorEadnapPandae
             };
         }
 
-        public static DialogCommand MakePandaeDialog(string emote, string text)
+        public static DialogCommand MakePandaeDialog(string emote, string text, bool thinking = false)
         {
-            return MakeCharacterDialog(G_Chars.Pandae, emote, text);
+            return MakeCharacterDialog(G_Chars.Pandae, emote, text, thinking);
         }
 
-        public static DialogCommand MakeSmirkfredDialog(string emote, string text)
+        public static DialogCommand MakeSmirkfredDialog(string emote, string text, bool thinking = false)
         {
-            return MakeCharacterDialog(G_Chars.Smirkfred, emote, text);
+            return MakeCharacterDialog(G_Chars.Smirkfred, emote, text, thinking);
         }
 
-        private static DialogCommand MakeCharacterDialog(string name, string emote, string text)
+        private static DialogCommand MakeCharacterDialog(string name, string emote, string text, bool thinking)
         {
             Character character = characters.GetCharacter(name);
 
@@ -56,7 +56,8 @@ namespace AceInvestigatorEadnapPandae
                 { 
                     Character = character.Name,
                     Emote = emote,
-                    Show = (!string.IsNullOrEmpty(emote))
+                    Show = (!string.IsNullOrEmpty(emote)),
+                    Thinking = thinking
                 },
                 BlipCommand = new BlipCommand() {Blip = character.Blips},
                 TextCommands = parser.Parse(text)

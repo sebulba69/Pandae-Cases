@@ -12,6 +12,7 @@ namespace AceInvestigatorEadnapPandae.characters
         protected string currentEmote = "";
         private AnimationPlayer basePlayer, blinkPlayer, talkPlayer;
         private Sprite blinkSprite, talkSprite;
+        private bool isThinking;
 
         public override void _Ready()
         {
@@ -22,14 +23,16 @@ namespace AceInvestigatorEadnapPandae.characters
             talkSprite = GetNode<Sprite>("%Talk");
         }
 
-        public void SetCurrentEmote(string newEmote) 
+        public void SetCurrentEmote(string newEmote, bool thinking) 
         {
             currentEmote = newEmote;
             basePlayer.Play(newEmote);
 
             blinkPlayer.Play(newEmote);
 
-            if (talkSprite.Visible) 
+            isThinking = thinking;
+
+            if (talkSprite.Visible && !isThinking) 
             {
                 talkPlayer.Play(newEmote);
             }
@@ -41,7 +44,7 @@ namespace AceInvestigatorEadnapPandae.characters
 
         public virtual void SetTalk(bool talk)
         {
-            if (talk && !talkSprite.Visible) 
+            if (talk && !talkSprite.Visible && !isThinking) 
             {
                 talkSprite.Visible = true;
                 talkPlayer.Play(currentEmote);
