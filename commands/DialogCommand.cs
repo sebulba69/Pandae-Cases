@@ -19,15 +19,13 @@ namespace AceInvestigatorEadnapPandae.commands
 
         public bool Thinking { get; set; } = false;
 
-        public DialogCommand()
+        public DialogCommand() : base()
         {
             WaitUntilFinished = true;
         }
 
         public override void Run(Location location)
         {
-            base.Run(location);
-
             bool charCommandNull = CharacterCommand == null;
 
             SpeedCommand?.Run(location);

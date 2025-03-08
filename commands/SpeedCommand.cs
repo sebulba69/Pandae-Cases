@@ -12,9 +12,13 @@ namespace AceInvestigatorEadnapPandae.commands
     {
         public float Speed { get; set; } = Globals.Text_Normal;
 
+        public SpeedCommand() : base()
+        {
+            
+        }
+
         public override void Run(Location location)
         {
-            base.Run(location);
             location.DialogBox.SetSpeed(this);
             Finish();
         }

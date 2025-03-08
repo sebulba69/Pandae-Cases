@@ -16,9 +16,13 @@ namespace AceInvestigatorEadnapPandae.commands
         public string Emote { get; set; }
         public bool Show { get; set; } = true;
 
+        public CharacterCommand() : base()
+        {
+            
+        }
+
         public override void Run(Location location)
         {
-            base.Run(location);
             location.DialogBox.SetShowname(Character);
 
             if (Show)

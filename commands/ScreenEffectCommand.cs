@@ -15,10 +15,13 @@ namespace AceInvestigatorEadnapPandae.commands
         public bool Shake {  get; set; } = false;
         public string SFX { get; set; } = string.Empty;
 
+        public ScreenEffectCommand() : base()
+        {
+            
+        }
+
         public override void Run(Location location)
         {
-            base.Run(location);
-
             if (Flash)
             {
                 location.PlaySceneAnimation(new AnimationCommand() { Animation = "flash" });

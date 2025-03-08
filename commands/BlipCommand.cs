@@ -17,9 +17,13 @@ namespace AceInvestigatorEadnapPandae.commands
         /// </summary>
         public string Blip {  get; set; }
 
+        public BlipCommand() : base()
+        {
+            
+        }
+
         public override void Run(Location location)
         {
-            base.Run(location);
             location.DialogBox.SetBlips(this);
             Finish();
         }

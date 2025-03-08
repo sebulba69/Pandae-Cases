@@ -15,10 +15,13 @@ namespace AceInvestigatorEadnapPandae.commands
         public string Text { get; set; }
         public bool Additive { get; set; } = false;
 
+        public TextCommand() : base()
+        {
+            
+        }
+
         public override void Run(Location location)
         {
-            base.Run(location);
-
             DialogBox dialogBox = location.DialogBox;
 
             dialogBox.ProcessText(this);

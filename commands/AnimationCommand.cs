@@ -11,10 +11,10 @@ namespace AceInvestigatorEadnapPandae.commands
     {
         public string Animation { get; set; }
 
+        public AnimationCommand() : base() {}
+
         public override void Run(Location location)
         {
-            base.Run(location);
-
             location.PlaySceneAnimation(this);
 
             // Don't bother waiting for the animation callback to proceed.

@@ -20,10 +20,7 @@ namespace AceInvestigatorEadnapPandae.commands
             Finished = new AutoResetEvent(false);
         }
 
-        public virtual void Run(Location location)
-        {
-            Finished = new AutoResetEvent(false);
-        }
+        public virtual void Run(Location location) {}
 
         public void Finish()
         {

@@ -11,10 +11,13 @@ namespace AceInvestigatorEadnapPandae.commands
     {
         public string Flag {  get; set; }
 
+        public SetFlagCommand() : base()
+        {
+            
+        }
+
         public override void Run(Location location)
         {
-            base.Run(location);
-
             location.SetFlag(Flag);
 
             Finish();

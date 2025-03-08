@@ -12,10 +12,13 @@ namespace AceInvestigatorEadnapPandae.commands
     {
         public string Music { get; set; }
 
+        public MusicCommand() : base()
+        {
+            
+        }
+
         public override void Run(Location location)
         {
-            base.Run(location);
-
             location.Music.Stream = ResourceLoader.Load<AudioStream>(Music);
             location.Music.Play();
 

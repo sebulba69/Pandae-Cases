@@ -12,10 +12,13 @@ namespace AceInvestigatorEadnapPandae.commands
     {
         public double PauseTime { get; set; } = 0.2;
 
+        public PauseCommand() : base()
+        {
+            
+        }
+
         public override void Run(Location location)
         {
-            base.Run(location);
-
             string speaker = location.DialogBox.Speaker;
             CharacterNode characterNode = null;
             try
