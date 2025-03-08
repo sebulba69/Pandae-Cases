@@ -1,4 +1,5 @@
 ﻿using AceInvestigatorEadnapPandae.characters;
+using AceInvestigatorEadnapPandae.Global_Variables;
 using AceInvestigatorEadnapPandae.location;
 using Godot;
 using System;

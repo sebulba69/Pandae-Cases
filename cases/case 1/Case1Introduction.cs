@@ -2,6 +2,7 @@ using AceInvestigatorEadnapPandae;
 using AceInvestigatorEadnapPandae.cases.case_1;
 using AceInvestigatorEadnapPandae.characters;
 using AceInvestigatorEadnapPandae.commands;
+using AceInvestigatorEadnapPandae.Global_Variables;
 using AceInvestigatorEadnapPandae.location;
 using Godot;
 using System;
@@ -16,8 +17,8 @@ public class Case1Introduction : Location
         DialogBox = GetNode<DialogBox>("%DialogBox");
         Characters = new Dictionary<string, CharacterNode>()
         {
-            { Globals.Pandae, GetNode<CharacterNode>("%pandae") },
-            { Globals.Smirkfred, GetNode<CharacterNode>("%smirkfred") }
+            { G_Chars.Pandae, GetNode<CharacterNode>("%pandae") },
+            { G_Chars.Smirkfred, GetNode<CharacterNode>("%smirkfred") }
         };
         Music = GetNode<AudioStreamPlayer>("%AudioStreamPlayer");
         SFX = GetNode<AudioStreamPlayer>("%SFXPlayer");

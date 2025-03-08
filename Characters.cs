@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AceInvestigatorEadnapPandae.Global_Variables;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,7 +30,7 @@ namespace AceInvestigatorEadnapPandae
         {
             Character character = new Character() 
             {
-                Name = Globals.Pandae,
+                Name = G_Chars.Pandae,
                 Blips = Blips.Male
             };
 
@@ -40,7 +41,7 @@ namespace AceInvestigatorEadnapPandae
         {
             Character character = new Character()
             {
-                Name = Globals.Smirkfred,
+                Name = G_Chars.Smirkfred,
                 Blips = Blips.Male
             };
 

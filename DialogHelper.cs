@@ -1,4 +1,5 @@
 ﻿using AceInvestigatorEadnapPandae.commands;
+using AceInvestigatorEadnapPandae.Global_Variables;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,12 +38,12 @@ namespace AceInvestigatorEadnapPandae
 
         public static DialogCommand MakePandaeDialog(string emote, string text)
         {
-            return MakeCharacterDialog(Globals.Pandae, emote, text);
+            return MakeCharacterDialog(G_Chars.Pandae, emote, text);
         }
 
         public static DialogCommand MakeSmirkfredDialog(string emote, string text)
         {
-            return MakeCharacterDialog(Globals.Smirkfred, emote, text);
+            return MakeCharacterDialog(G_Chars.Smirkfred, emote, text);
         }
 
         private static DialogCommand MakeCharacterDialog(string name, string emote, string text)

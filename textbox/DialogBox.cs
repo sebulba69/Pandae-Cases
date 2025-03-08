@@ -1,5 +1,6 @@
 using AceInvestigatorEadnapPandae;
 using AceInvestigatorEadnapPandae.commands;
+using AceInvestigatorEadnapPandae.Global_Variables;
 using Godot;
 using System;
 using System.Collections;

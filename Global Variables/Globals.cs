@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AceInvestigatorEadnapPandae
+namespace AceInvestigatorEadnapPandae.Global_Variables
 {
     public static class Globals
     {
@@ -41,24 +41,5 @@ namespace AceInvestigatorEadnapPandae
             { SFX_Explode, "res://sfx/SE_OLD_14.ogg" },
             { SFX_Damage1, "res://sfx/SE_OLD_26.ogg" },
         };
-
-        // animations
-        public static string C1_Intro_Do_CloseUps = "do_close_ups";
-        public static string C1_Remove_Close_Ups = "remove_close_ups";
-        public static string C1_Remove_Box = "remove_box";
-        public static string C1_Intro_SmirkfredCloseUp = "smirkfred_close_up";
-        public static string C1_Intro_SmirkfredSlideCenter = "smirkfred_slide_center";
-        public static string C1_Smirkfred_Slide_Pandae = "smirkfred_slide_pandae";
-        public static string C1_Pandae_Slide = "pandae_slide";
-
-        // Easy access strings for characters + emotes
-        // Pandae
-        public static string Pandae = "Pandae";
-        public static string Pandae_Normal = "normal";
-        public static string Pandae_Crossed = "crossed";
-
-        // Smirkfred
-        public static string Smirkfred = "Smirkfred";
-        public static string Smirkfred_Normal = "normal";
     }
 }

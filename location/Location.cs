@@ -11,6 +11,8 @@ namespace AceInvestigatorEadnapPandae.location
 {
     public class Location : Control
     {
+        public EventHandler<string> InvestigateSpotEvent;
+
         protected List<Command> commands;
 
         private AnimationCommand currentAnimationCommand = null;
@@ -74,6 +76,11 @@ namespace AceInvestigatorEadnapPandae.location
                 player.Connect("animation_finished", this, "AnimationComplete");
                 Animations.Add(player);
             }
+        }
+
+        protected void InvestigateSpot(string pointOfInterest)
+        {
+            InvestigateSpotEvent?.Invoke(null, pointOfInterest);
         }
 
         private void AnimationComplete(string animation) 

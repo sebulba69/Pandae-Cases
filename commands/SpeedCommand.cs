@@ -1,4 +1,5 @@
-﻿using AceInvestigatorEadnapPandae.location;
+﻿using AceInvestigatorEadnapPandae.Global_Variables;
+using AceInvestigatorEadnapPandae.location;
 using System;
 using System.Collections.Generic;
 using System.Linq;

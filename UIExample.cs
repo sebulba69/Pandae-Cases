@@ -6,6 +6,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using AceInvestigatorEadnapPandae.Global_Variables;
 
 public class UIExample : Location
 {
@@ -22,20 +23,20 @@ public class UIExample : Location
 
 
         commands = new List<Command>();
-        commands.Add(DialogHelper.MakePandaeDialog(Globals.Pandae_Normal, $"There were two ways the culprit could get inside..."));
-        commands.Add(DialogHelper.MakePandaeDialog(Globals.Pandae_Normal, "First, they opened the door.\nSecond, they BECAME the door."));
+        commands.Add(DialogHelper.MakePandaeDialog(G_Chars.Pandae_Normal, $"There were two ways the culprit could get inside..."));
+        commands.Add(DialogHelper.MakePandaeDialog(G_Chars.Pandae_Normal, "First, they opened the door.\nSecond, they BECAME the door."));
         commands.Add(DialogHelper.MakeNoShownameDialog("[color=#FFA500][center]-- My Testimony --[/center][/color]"));
 
-        Characters.Add(Globals.Pandae, GetNode<CharacterNode>("%pandae"));
+        Characters.Add(G_Chars.Pandae, GetNode<CharacterNode>("%pandae"));
 
         debugButton.Connect("pressed", this, nameof(Run));
     }
 
-    public async void Run()
+    public void Run()
     {
         debugButton.Disabled = true;
         
-        await Task.Run(() =>
+        Task.Run(() =>
             {
                 foreach (Command command in commands)
                 {
@@ -43,7 +44,7 @@ public class UIExample : Location
                     command.Finished.WaitOne();
                 }
             }
-        );
+        ).Wait();
 
         debugButton.Disabled = false;
     }
