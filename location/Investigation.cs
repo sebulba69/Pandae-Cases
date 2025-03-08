@@ -70,6 +70,10 @@ namespace AceInvestigatorEadnapPandae.location
 
             if (completionConditions.Count == completedConditions)
             {
+                // deregister events
+                location.InvestigateSpotEvent -= OnInvestigateSpot;
+                location.SetFlagEvent -= OnFlagSet;
+
                 Complete?.Invoke(null, EventArgs.Empty);
             }
         }

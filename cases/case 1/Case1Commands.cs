@@ -1,5 +1,6 @@
 ﻿using AceInvestigatorEadnapPandae.commands;
 using AceInvestigatorEadnapPandae.Global_Variables;
+using AceInvestigatorEadnapPandae.location;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -75,6 +76,8 @@ namespace AceInvestigatorEadnapPandae.cases.case_1
                 DialogHelper.MakePandaeDialog(G_Chars.Pandae_Normal, $"[color={Globals.ThinkColor}](There's also some weird smell... {CommandHelper.GetHuhFlash()}like grape juice or something.)[/color]", true),
                 // add evidence
             };
+
+            
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AceInvestigatorEadnapPandae.commands;
+using AceInvestigatorEadnapPandae.location;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -41,5 +43,16 @@ namespace AceInvestigatorEadnapPandae.Global_Variables
             { SFX_Explode, "res://sfx/SE_OLD_14.ogg" },
             { SFX_Damage1, "res://sfx/SE_OLD_26.ogg" },
         };
+
+        public static Investigation MakeInvestigation(List<string> flags, Dictionary<string, List<Command>> pointsOfInterest, List<string> completionConditions)
+        {
+            Dictionary<string, bool> investigationFlags = new Dictionary<string, bool>();
+            foreach(string flag in flags)
+            {
+                investigationFlags.Add(flag, false);
+            }
+
+            return new Investigation(investigationFlags, pointsOfInterest, completionConditions);
+        }
     }
 }
