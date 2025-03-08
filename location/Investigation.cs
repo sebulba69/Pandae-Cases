@@ -43,39 +43,39 @@ namespace AceInvestigatorEadnapPandae.location
             }
         }
 
-        private void OnInvestigateSpot(object sender, string pointOfInterest)
+        private async void OnInvestigateSpot(object sender, string pointOfInterest)
         {
             // no checks here, let it crash if it's not in the list since this dictionary
             // is populated by the case dev, not at runtime
             List<Command> commands = pointsOfInterest[pointOfInterest];
 
             // must be async void so that _Ready() can finish
-            Task.Run(() =>
+            await Task.Run(() =>
             {
                 foreach (Command command in commands)
                 {
                     command.Run(location);
                     command.Finished.WaitOne();
                 }
-            }).Wait();
 
-            int completedConditions = 0;
-            foreach(string condition in completionConditions)
-            {
-                if (flags[condition])
+                int completedConditions = 0;
+                foreach (string condition in completionConditions)
                 {
-                    completedConditions++;
+                    if (flags[condition])
+                    {
+                        completedConditions++;
+                    }
                 }
-            }
 
-            if (completionConditions.Count == completedConditions)
-            {
-                // deregister events
-                location.InvestigateSpotEvent -= OnInvestigateSpot;
-                location.SetFlagEvent -= OnFlagSet;
+                if (completionConditions.Count == completedConditions)
+                {
+                    // deregister events
+                    location.InvestigateSpotEvent -= OnInvestigateSpot;
+                    location.SetFlagEvent -= OnFlagSet;
 
-                Complete?.Invoke(null, EventArgs.Empty);
-            }
+                    Complete?.Invoke(null, EventArgs.Empty);
+                }
+            });
         }
     }
 }

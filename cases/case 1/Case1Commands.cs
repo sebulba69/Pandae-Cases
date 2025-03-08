@@ -61,23 +61,32 @@ namespace AceInvestigatorEadnapPandae.cases.case_1
             DialogHelper.MakePandaeDialog(string.Empty, $"[color={Globals.ThinkColor}](Lemme take a closer look at the body.)[/color]"),
             CommandHelper.PlayAnimation(G_Case1.C1_Remove_Box, true),
             CommandHelper.PlayAnimation(G_Case1.C1_Remove_Close_Ups, true),
+            CommandHelper.PlayAnimation(G_Case1.C1_show_examine),
+            MakeInvestigationTutorial(),
+            DialogHelper.MakePandaeDialog(G_Chars.Pandae_Crossed, $"{CommandHelper.GetShake()}Hmmrrgh, it's one of THESE cases.", false),
         };
     
-        public static void Investigation1()
+        public static InvestigationCommand MakeInvestigationTutorial()
         {
             List<string> conditions = new List<string>() { G_Case1.Flag_Body };
 
             List<Command> bodyInvestigation = new List<Command>() 
             {
+                CommandHelper.PlayAnimation(G_Case1.C1_hide_examine),
                 CommandHelper.PlayAnimation(G_Case1.C1_Intro_Do_CloseUps),
                 CommandHelper.PlayAnimation(G_Case1.C1_Intro_PandaeCloseUp, true),
                 DialogHelper.MakePandaeDialog(G_Chars.Pandae_Crossed, $"[color={Globals.ThinkColor}](Yup, he dead.)[/color]", true),
                 DialogHelper.MakePandaeDialog(G_Chars.Pandae_Crossed, $"[color={Globals.ThinkColor}](Looks like someone hit him in the back of the head.)[/color]", true),
-                DialogHelper.MakePandaeDialog(G_Chars.Pandae_Normal, $"[color={Globals.ThinkColor}](There's also some weird smell... {CommandHelper.GetHuhFlash()}like grape juice or something.)[/color]", true),
-                // add evidence
+                DialogHelper.MakePandaeDialog(G_Chars.Pandae_Normal, $"[color={Globals.ThinkColor}](There's also some weird smell... {CommandHelper.GetHuhFlash()}like grape juice or something.)", true),
+                CommandHelper.AddNewEvidence(G_Case1.GetBodyNotes()),
+                CommandHelper.SetFlag(G_Case1.Flag_Body)
             };
 
+            Dictionary<string, List<Command>> pointsOfInterest = new Dictionary<string, List<Command>>() { { G_Case1.C1_POI_Body, bodyInvestigation } };
+
+            Investigation investigation = Globals.MakeInvestigation(conditions, pointsOfInterest, conditions);
             
+            return new InvestigationCommand() { Investigation = investigation };
         }
     }
 }

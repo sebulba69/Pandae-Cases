@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AceInvestigatorEadnapPandae.evidence
+{
+    public enum EvidenceType
+    {
+        Evidence, Topic
+    }
+
+    public class Evidence
+    {
+        public EvidenceType Type { get; set; } = EvidenceType.Evidence;
+
+        public string Name {  get; set; }
+
+        public string Description { get; set; }
+
+        public string ImagePath {  get; set; }
+    }
+}

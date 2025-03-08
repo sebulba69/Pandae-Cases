@@ -22,6 +22,10 @@ namespace AceInvestigatorEadnapPandae.Global_Variables
 
         public static string Pause_Short = "{p 0.1}";
         public static string Pause_Long = "{p 0.2}";
+        public static string Pause_Evidence = "{p 1}";
+
+        public static string Ev_Anim_Start = "show_new_evidence";
+        public static string Ev_Anim_End = "remove_new_evidence";
 
         // songs
         public static string AAI2_Investigation_Begin = "res://music/BGM_01.ogg";
@@ -33,6 +37,8 @@ namespace AceInvestigatorEadnapPandae.Global_Variables
         public static string SFX_Candle = "candle";
         public static string SFX_Explode = "explode";
         public static string SFX_Damage1 = "damage1";
+        public static string SFX_Evidence = "evidence";
+        public static string SFX_Select_Point = "res://sfx/menu_sounds/SE_OLD_01.ogg";
 
         public static Dictionary<string, string> SFXs = new Dictionary<string, string>() 
         {
@@ -42,6 +48,7 @@ namespace AceInvestigatorEadnapPandae.Global_Variables
             { SFX_Candle, "res://sfx/SE_170.ogg" },
             { SFX_Explode, "res://sfx/SE_OLD_14.ogg" },
             { SFX_Damage1, "res://sfx/SE_OLD_26.ogg" },
+            { SFX_Evidence, "res://sfx/SE_OLD_20.ogg" },
         };
 
         public static Investigation MakeInvestigation(List<string> flags, Dictionary<string, List<Command>> pointsOfInterest, List<string> completionConditions)

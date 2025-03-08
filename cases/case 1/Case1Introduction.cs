@@ -14,6 +14,9 @@ public class Case1Introduction : Location
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        TextureButton buttonScene = GetNode<TextureButton>("%ButtonScene");
+        buttonScene.Connect("pressed", this, "BodyExamined");
+
         DialogBox = GetNode<DialogBox>("%DialogBox");
         Characters = new Dictionary<string, CharacterNode>()
         {
@@ -36,5 +39,10 @@ public class Case1Introduction : Location
         RegisterPlayers(players);
 
         Run();
+    }
+
+    private void BodyExamined()
+    {
+        InvestigateSpot(G_Case1.C1_POI_Body);
     }
 }

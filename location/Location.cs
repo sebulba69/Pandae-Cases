@@ -1,5 +1,6 @@
 ﻿using AceInvestigatorEadnapPandae.characters;
 using AceInvestigatorEadnapPandae.commands;
+using AceInvestigatorEadnapPandae.Global_Variables;
 using Godot;
 using System;
 using System.Collections.Generic;
@@ -87,6 +88,9 @@ namespace AceInvestigatorEadnapPandae.location
 
         protected void InvestigateSpot(string pointOfInterest)
         {
+            string sfxPath = Globals.SFX_Select_Point;
+            SFX.Stream = ResourceLoader.Load<AudioStream>(sfxPath);
+            SFX.Play();
             InvestigateSpotEvent?.Invoke(null, pointOfInterest);
         }
 

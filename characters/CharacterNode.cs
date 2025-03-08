@@ -32,7 +32,7 @@ namespace AceInvestigatorEadnapPandae.characters
 
             isThinking = thinking;
 
-            if (talkSprite.Visible && !isThinking) 
+            if (talkSprite.Visible) 
             {
                 talkPlayer.Play(newEmote);
             }
@@ -44,12 +44,23 @@ namespace AceInvestigatorEadnapPandae.characters
 
         public virtual void SetTalk(bool talk)
         {
-            if (talk && !talkSprite.Visible && !isThinking) 
+            if (talk) 
             {
-                talkSprite.Visible = true;
-                talkPlayer.Play(currentEmote);
+                if (!isThinking) 
+                {
+                    if(!talkSprite.Visible)
+                    {
+                        talkSprite.Visible = true;
+                        talkPlayer.Play(currentEmote);
+                    }
+                }
+                else
+                {
+                    talkPlayer.Stop();
+                    talkSprite.Visible = false;
+                }
             }
-            else if (!talk)
+            else
             {
                 talkPlayer.Stop();
                 talkSprite.Visible = false;

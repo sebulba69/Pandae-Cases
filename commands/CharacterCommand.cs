@@ -15,7 +15,7 @@ namespace AceInvestigatorEadnapPandae.commands
         public string Character {  get; set; }
         public string Emote { get; set; }
         public bool Show { get; set; } = true;
-        public bool Thinking { get; set; } = true;
+        public bool Thinking { get; set; } = false;
 
         public CharacterCommand() : base()
         {

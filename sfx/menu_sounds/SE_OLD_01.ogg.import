@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SE_OLD_01.ogg-cb66e8125b760a9049adc0d586f8c980.oggstr"
+
+[deps]
+
+source_file="res://sfx/menu_sounds/SE_OLD_01.ogg"
+dest_files=[ "res://.import/SE_OLD_01.ogg-cb66e8125b760a9049adc0d586f8c980.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

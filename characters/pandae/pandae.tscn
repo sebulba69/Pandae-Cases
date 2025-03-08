@@ -480,7 +480,7 @@ region_rect = Rect2( 1582, 404, 179, 180 )
 
 [node name="Blink" type="Sprite" parent="."]
 unique_name_in_owner = true
-position = Vector2( 20.5, -330.5 )
+position = Vector2( -124, 30 )
 texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 1258, 334, 225, 180 )

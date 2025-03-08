@@ -1,4 +1,5 @@
 ﻿using AceInvestigatorEadnapPandae.commands;
+using AceInvestigatorEadnapPandae.evidence;
 using AceInvestigatorEadnapPandae.Global_Variables;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,11 @@ namespace AceInvestigatorEadnapPandae
             return commandMarkups.Effect(flash: true, shake: false, sfx: Globals.SFX_Huh);
         }
 
+        public static string GetShake()
+        {
+            return commandMarkups.Effect(flash: false, shake: true, sfx: "");
+        }
+
         public static string GetSmackShake()
         {
             return commandMarkups.Effect(flash: true, shake: true, sfx: Globals.SFX_Smack);
@@ -46,6 +52,13 @@ namespace AceInvestigatorEadnapPandae
         {
             return commandMarkups.Effect(flash: true, shake: true, sfx: Globals.SFX_Candle);
         }
+
+        public static string GetNewEvidence()
+        {
+            return commandMarkups.Effect(flash: false, shake: false, sfx: Globals.SFX_Evidence);
+        }
+
+        public static AddEvidenceCommand AddNewEvidence(Evidence evidence) => new AddEvidenceCommand() { Evidence = evidence };
 
         public static SetFlagCommand SetFlag(string flag) => new SetFlagCommand() { Flag = G_Case1.Flag_Body };
 

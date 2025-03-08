@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://cases/case 1/map_1.png" type="Texture" id=1]
 [ext_resource path="res://characters/minis/PANDAE_MINI.png" type="Texture" id=2]
@@ -8,6 +8,9 @@
 [ext_resource path="res://characters/smirkfred/smirkfred.tscn" type="PackedScene" id=6]
 [ext_resource path="res://characters/pandae/pandae.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Background.cs" type="Script" id=8]
+[ext_resource path="res://evidence/EvidenceScene.tscn" type="PackedScene" id=9]
+[ext_resource path="res://sfx/SE_OLD_20.ogg" type="AudioStream" id=10]
+[ext_resource path="res://misc_ui/ButtonScene.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -82,6 +85,18 @@ tracks/5/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("CanvasLayer/EvidenceScene:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -960, 270 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -204,6 +219,38 @@ tracks/4/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
+[sub_resource type="Animation" id=14]
+resource_name = "remove_new_evidence"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/EvidenceScene:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 480, 270 ), Vector2( 1950, 270 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "show_new_evidence"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/EvidenceScene:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -960, 270 ), Vector2( 480, 270 ) ]
+}
+
 [sub_resource type="Animation" id=4]
 length = 0.001
 tracks/0/type = "value"
@@ -280,7 +327,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 960, 547 ) ]
+"values": [ Vector2( 920, 547 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("CanvasLayer/pandae:modulate")
@@ -332,7 +379,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 331, 547 ), Vector2( 960, 547 ) ]
+"values": [ Vector2( 331, 547 ), Vector2( 920, 547 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("CanvasLayer/smirkfred:modulate")
@@ -436,7 +483,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ Vector2( 331, 547 ), Vector2( 960, 547 ) ]
+"values": [ Vector2( 331, 547 ), Vector2( 920, 547 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -452,7 +499,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 960, 580.5 ), Vector2( 1537, 580.5 ) ]
+"values": [ Vector2( 920, 580.5 ), Vector2( 1537, 580.5 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("CanvasLayer/pandae:position")
@@ -493,6 +540,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/ButtonScene:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/ButtonScene:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=7]
 resource_name = "flash"
@@ -509,6 +580,62 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "hide_examine"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/ButtonScene:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/ButtonScene:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "show_examine"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/ButtonScene:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/ButtonScene:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [node name="case_1_introduction" type="Control"]
@@ -559,7 +686,7 @@ color = Color( 1, 1, 1, 0 )
 [node name="pandae" parent="CanvasLayer" instance=ExtResource( 7 )]
 unique_name_in_owner = true
 modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 331, 547 )
+position = Vector2( 920, 547 )
 
 [node name="smirkfred" parent="CanvasLayer" instance=ExtResource( 6 )]
 unique_name_in_owner = true
@@ -578,12 +705,30 @@ margin_bottom = 1080.0
 mouse_filter = 2
 color = Color( 1, 1, 1, 0 )
 
+[node name="EvidenceScene" parent="CanvasLayer" instance=ExtResource( 9 )]
+unique_name_in_owner = true
+margin_left = -960.0
+margin_top = 270.0
+margin_right = -2007.0
+margin_bottom = -457.0
+
+[node name="ButtonScene" parent="CanvasLayer" instance=ExtResource( 11 )]
+unique_name_in_owner = true
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 1168.0
+margin_top = 338.0
+margin_right = 1310.0
+margin_bottom = 521.0
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 anims/RESET = SubResource( 1 )
 anims/do_close_ups = SubResource( 2 )
 anims/remove_box = SubResource( 11 )
 anims/remove_close_ups = SubResource( 10 )
+anims/remove_new_evidence = SubResource( 14 )
+anims/show_new_evidence = SubResource( 13 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -598,6 +743,8 @@ anims/smirkfred_slide_pandae = SubResource( 5 )
 unique_name_in_owner = true
 anims/RESET = SubResource( 6 )
 anims/flash = SubResource( 7 )
+anims/hide_examine = SubResource( 16 )
+anims/show_examine = SubResource( 15 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
@@ -605,4 +752,5 @@ bus = "Music"
 
 [node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+stream = ExtResource( 10 )
 bus = "Blips"
