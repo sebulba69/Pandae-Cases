@@ -12,6 +12,7 @@ namespace AceInvestigatorEadnapPandae.location
     public class Location : Control
     {
         public EventHandler<string> InvestigateSpotEvent;
+        public EventHandler<string> SetFlagEvent;
 
         protected List<Command> commands;
 
@@ -31,6 +32,7 @@ namespace AceInvestigatorEadnapPandae.location
 
         protected async void Run()
         {
+            // must be async void so that _Ready() can finish
             await Task.Run(() =>
             {
                 foreach (Command command in commands)
@@ -76,6 +78,11 @@ namespace AceInvestigatorEadnapPandae.location
                 player.Connect("animation_finished", this, "AnimationComplete");
                 Animations.Add(player);
             }
+        }
+
+        public void SetFlag(string flag)
+        {
+            SetFlagEvent?.Invoke(null, flag);
         }
 
         protected void InvestigateSpot(string pointOfInterest)

@@ -1,4 +1,5 @@
-﻿using AceInvestigatorEadnapPandae.location;
+﻿using AceInvestigatorEadnapPandae.characters;
+using AceInvestigatorEadnapPandae.location;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,24 @@ namespace AceInvestigatorEadnapPandae.commands
         public override void Run(Location location)
         {
             base.Run(location);
-            runner.Execute(location, this);
+
+            string speaker = location.DialogBox.Speaker;
+            CharacterNode characterNode = null;
+            try
+            {
+                if (speaker != "")
+                    characterNode = location.Characters[speaker];
+            }
+            catch (NullReferenceException)
+            {
+                characterNode = null;
+            }
+
+            characterNode?.SetTalk(false);
+
+            Task.Delay((int)(PauseTime * 1000)).Wait();
+
+            Finish();
         }
     }
 }

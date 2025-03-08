@@ -1,4 +1,5 @@
 ﻿using AceInvestigatorEadnapPandae.location;
+using Godot;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,11 @@ namespace AceInvestigatorEadnapPandae.commands
         public override void Run(Location location)
         {
             base.Run(location);
-            runner.Execute(location, this);
+
+            location.Music.Stream = ResourceLoader.Load<AudioStream>(Music);
+            location.Music.Play();
+
+            Finish();
         }
     }
 }

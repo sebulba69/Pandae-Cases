@@ -14,7 +14,14 @@ namespace AceInvestigatorEadnapPandae.commands
         public override void Run(Location location)
         {
             base.Run(location);
-            runner.Execute(location, this);
+
+            location.PlaySceneAnimation(this);
+
+            // Don't bother waiting for the animation callback to proceed.
+            if (!WaitUntilFinished)
+            {
+                Finish();
+            }
         }
     }
 }

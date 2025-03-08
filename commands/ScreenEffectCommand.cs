@@ -1,4 +1,6 @@
-﻿using AceInvestigatorEadnapPandae.location;
+﻿using AceInvestigatorEadnapPandae.Global_Variables;
+using AceInvestigatorEadnapPandae.location;
+using Godot;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +18,26 @@ namespace AceInvestigatorEadnapPandae.commands
         public override void Run(Location location)
         {
             base.Run(location);
-            runner.Execute(location, this);
+
+            if (Flash)
+            {
+                location.PlaySceneAnimation(new AnimationCommand() { Animation = "flash" });
+            }
+
+            if (Shake)
+            {
+                location.DialogBox.Shake();
+                location.Background.Shake();
+            };
+
+            if (!string.IsNullOrEmpty(SFX))
+            {
+                string sfxPath = Globals.SFXs[SFX];
+                location.SFX.Stream = ResourceLoader.Load<AudioStream>(sfxPath);
+                location.SFX.Play();
+            }
+
+            Finish();
         }
     }
 }

@@ -15,11 +15,8 @@ namespace AceInvestigatorEadnapPandae.commands
 
         public bool WaitUntilFinished { get; set; } = false;
 
-        protected CommandRunner runner;
-
         public Command()
         {
-            runner = new CommandRunner();
             Finished = new AutoResetEvent(false);
         }
 

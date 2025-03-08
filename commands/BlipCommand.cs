@@ -20,7 +20,8 @@ namespace AceInvestigatorEadnapPandae.commands
         public override void Run(Location location)
         {
             base.Run(location);
-            runner.Execute(location, this);
+            location.DialogBox.SetBlips(this);
+            Finish();
         }
     }
 }

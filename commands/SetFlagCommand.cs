@@ -1,5 +1,4 @@
-﻿using AceInvestigatorEadnapPandae.Global_Variables;
-using AceInvestigatorEadnapPandae.location;
+﻿using AceInvestigatorEadnapPandae.location;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,14 +7,16 @@ using System.Threading.Tasks;
 
 namespace AceInvestigatorEadnapPandae.commands
 {
-    public class SpeedCommand : Command
+    public class SetFlagCommand : Command
     {
-        public float Speed { get; set; } = Globals.Text_Normal;
+        public string Flag {  get; set; }
 
         public override void Run(Location location)
         {
             base.Run(location);
-            location.DialogBox.SetSpeed(this);
+
+            location.SetFlag(Flag);
+
             Finish();
         }
     }

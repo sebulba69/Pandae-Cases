@@ -16,5 +16,9 @@ namespace AceInvestigatorEadnapPandae.Global_Variables
         public static string C1_Intro_SmirkfredSlideCenter = "smirkfred_slide_center";
         public static string C1_Smirkfred_Slide_Pandae = "smirkfred_slide_pandae";
         public static string C1_Pandae_Slide = "pandae_slide";
+
+        // points of interest
+        public static string C1_POI_Body = "body";
+        public static string C1_Flag_Body = "body";
     }
 }

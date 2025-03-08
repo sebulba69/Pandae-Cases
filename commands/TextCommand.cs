@@ -18,7 +18,13 @@ namespace AceInvestigatorEadnapPandae.commands
         public override void Run(Location location)
         {
             base.Run(location);
-            runner.Execute(location, this);
+
+            DialogBox dialogBox = location.DialogBox;
+
+            dialogBox.ProcessText(this);
+            dialogBox.MessageDisplayed.WaitOne();
+
+            Finish();
         }
     }
 }
