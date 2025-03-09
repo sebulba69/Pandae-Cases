@@ -75,7 +75,7 @@ namespace AceInvestigatorEadnapPandae.cases.case_1
                 CommandHelper.PlayAnimation(G_Case1.C1_hide_examine),
                 CommandHelper.PlayAnimation(G_Case1.C1_Intro_Do_CloseUps),
                 CommandHelper.PlayAnimation(G_Case1.C1_Intro_PandaeCloseUp, true),
-                DialogHelper.MakePandaeDialog(G_Chars.Pandae_Crossed, $"[color={Globals.ThinkColor}](Yup, he dead.)[/color]", true),
+                DialogHelper.MakePandaeDialog(G_Chars.Pandae_Normal, $"[color={Globals.ThinkColor}](Yup, he dead.)[/color]", true),
                 DialogHelper.MakePandaeDialog(G_Chars.Pandae_Crossed, $"[color={Globals.ThinkColor}](Looks like someone hit him in the back of the head.)[/color]", true),
                 DialogHelper.MakePandaeDialog(G_Chars.Pandae_Normal, $"[color={Globals.ThinkColor}](There's also some weird smell... {CommandHelper.GetHuhFlash()}like grape juice or something.)", true),
                 CommandHelper.AddNewEvidence(G_Case1.GetBodyNotes()),
