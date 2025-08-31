@@ -686,7 +686,7 @@ color = Color( 1, 1, 1, 0 )
 [node name="pandae" parent="CanvasLayer" instance=ExtResource( 7 )]
 unique_name_in_owner = true
 modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 920, 547 )
+position = Vector2( 331, 547 )
 
 [node name="smirkfred" parent="CanvasLayer" instance=ExtResource( 6 )]
 unique_name_in_owner = true
